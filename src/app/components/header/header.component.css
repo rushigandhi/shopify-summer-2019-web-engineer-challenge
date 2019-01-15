@@ -1,0 +1,14 @@
+.title{
+    width: 100%;
+    text-align: center;
+    top:0;
+    left:0;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-image: linear-gradient(to right, navy , green);
+}
+.title h1{
+    color: white;
+}

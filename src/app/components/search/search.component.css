@@ -1,0 +1,20 @@
+.search{
+    margin: 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 3em;
+}
+.search-bar {
+    width: 92%;
+}
+
+.search-btn {
+    width: 5%;
+    margin-left: 1em;
+    background: green;
+    border-radius: 0.3em;
+    border: none;
+    box-shadow: 1px 1px rgb(0,0,0,0.1);
+    ;
+}
