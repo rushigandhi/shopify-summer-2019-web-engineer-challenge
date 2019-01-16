@@ -17,7 +17,6 @@ export class ResultsComponent implements OnInit {
   ngOnInit() {
     this.itemService.getItems().subscribe(data =>{
       for(var i = 0; i < data.length; i++){
-        data[i].body = (data[i].body);
         this.items.push(data[i]);
       }
     });
