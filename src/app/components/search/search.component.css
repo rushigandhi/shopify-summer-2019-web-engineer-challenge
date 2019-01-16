@@ -7,13 +7,16 @@
 }
 .search-bar {
     width: 92%;
+    padding-left: 0.75em;
+    padding-right: 0.75em;
+
 }
 
 .search-btn {
     width: 4.5%;
     margin-left: 1em;
-    background: green;
-    border-radius: 0.3em;
+    background: #499661;
+    border-radius: 0.2em;
     border: none;
     box-shadow: 1px 1px rgb(0,0,0,0.1);
 }
