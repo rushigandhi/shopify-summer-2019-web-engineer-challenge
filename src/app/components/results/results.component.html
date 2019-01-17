@@ -16,9 +16,9 @@
   </div>
 </div>
 </div>
-<div *ngIf="!query">
+<div style="text-align: center" *ngIf="!query">
   Please search...
 </div>
-<div *ngIf="this.itemService.searchResults.length == 0 && query">
-    Not Available
+<div style="text-align: center" *ngIf="this.itemService.searchResults.length == 0 && query">
+    No Results
 </div>
