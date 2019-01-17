@@ -12,7 +12,7 @@ export class SearchComponent implements OnInit {
 
   query: string = "";
 
-  @ViewChild(ResultsComponent ) child: ResultsComponent ; 
+  @ViewChild(ResultsComponent) child: ResultsComponent ; 
 
   ngOnInit() {
   }

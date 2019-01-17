@@ -1,7 +1,13 @@
 <div *ngIf="query">
-<div *ngFor="let result of searchResults" class="results-container">
+<div *ngFor="let result of this.itemService.searchResults" class="results-container">
   <div class="item">
       <div class="item-title">
+          <span *ngIf="this.itemService.favourites.includes(result)">
+          <i (click)="favourite(result)" class="fas fa-star star-icon-delete"></i>
+          </span>
+          <span *ngIf="!this.itemService.favourites.includes(result)">
+              <i (click)="favourite(result)" class="fas fa-star star-icon-add"></i>
+          </span>
           {{result.title}}
         </div>
         <div class="item-content">
@@ -13,10 +19,6 @@
 <div *ngIf="!query">
   Please search...
 </div>
-<div *ngIf="searchResults.length == 0 && query">
+<div *ngIf="this.itemService.searchResults.length == 0 && query">
     Not Available
 </div>
-
-<!-- <ul *ngFor="let item of items">
-  <div [innerHTML]='item.body | unescape'></div>
-</ul> -->

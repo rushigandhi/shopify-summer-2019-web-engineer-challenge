@@ -1,6 +1,7 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, ViewChild} from '@angular/core';
 import { ItemService } from '../../services/item.service';
 import { Item } from '../../models/item';
+import { FavouritesComponent } from '../favourites/favourites.component';
 
 
 @Component({
@@ -10,28 +11,36 @@ import { Item } from '../../models/item';
 })
 export class ResultsComponent implements OnInit {
 
-  public items:Item[] = [];
   public query: string;
 
-  public searchResults: Item[] = []
+  @ViewChild(FavouritesComponent) child: FavouritesComponent ; 
 
   constructor(private itemService: ItemService) { }
 
   ngOnInit() {
     this.itemService.getItems().subscribe(data =>{
       for(var i = 0; i < data.length; i++){
-        this.items.push(data[i]);
+        this.itemService.items.push(data[i]);
       }
     });
   }
 
+  favourite(item: Item){
+    if(!this.itemService.favourites.includes(item)){
+      this.itemService.favourites.push(item);
+    }
+    else{
+      this.itemService.favourites.splice( this.itemService.favourites.indexOf(item), 1 );
+    }
+  }
+
   displayResults(query: string){
     this.query = query;
-    this.searchResults = [];
-    for(var i = 0; i < this.items.length; i++){
-      var keywords: string = this.items[i].keywords;
+    this.itemService.searchResults = [];
+    for(var i = 0; i < this.itemService.items.length; i++){
+      var keywords: string = this.itemService.items[i].keywords;
       if(keywords.includes(query)){
-        this.searchResults.push(this.items[i]);
+        this.itemService.searchResults.push(this.itemService.items[i]);
       }
     }
   }

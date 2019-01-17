@@ -1,0 +1,27 @@
+<div class="favourites-body">
+    <div class="favourites-container">
+        <h2 class="favourites-title">Favourites</h2>
+        <div *ngIf="this.itemService.favourites.length != 0">
+            <div *ngFor="let favouriteItem of this.itemService.favourites" class="results-container">
+              <div class="item">
+                  <div class="item-title">
+                      <span *ngIf="this.itemService.favourites.includes(favouriteItem)">
+                      <i (click)="favourite(favouriteItem)" class="fas fa-star star-icon-delete"></i>
+                      </span>
+                      <span *ngIf="!this.itemService.favourites.includes(favouriteItem)">
+                          <i (click)="favourite(favouriteItem)" class="fas fa-star star-icon-add"></i>
+                      </span>
+                      {{favouriteItem.title}}
+                    </div>
+                    <div class="item-content">
+                      <div [innerHTML]="favouriteItem.body | unescape"></div>
+                    </div>
+              </div>
+            </div>
+            </div>
+            <div *ngIf="this.itemService.favourites.length == 0">
+              No Favourites
+            </div>
+    </div>
+</div>
+

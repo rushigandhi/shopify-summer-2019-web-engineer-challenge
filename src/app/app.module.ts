@@ -9,13 +9,15 @@ import { SearchComponent } from './components/search/search.component';
 import { ResultsComponent } from './components/results/results.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { FavouritesComponent } from './components/favourites/favourites.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     SearchComponent,
-    ResultsComponent
+    ResultsComponent,
+    FavouritesComponent
   ],
   imports: [
     BrowserModule,

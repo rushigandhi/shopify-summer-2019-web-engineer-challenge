@@ -1,8 +1,19 @@
-.results-container{
+.favourites-body{
+    background: #f8fefa;
+    height: fill;
+}
+.favourites-container{
     margin: 1em 3em 1em 2em;
     padding-left: 1em;
     padding-right: 1em;
+    padding-top: 1.5em;
 }
+.favourites-title{
+    color: #499661;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
 .item{
     display: flex;
     flex-direction: row;
@@ -30,7 +41,6 @@
     cursor: pointer;
     color: #499661;
     padding-right: 0.5em;
-
 }
 .star-icon-delete:hover {
     cursor: pointer;
