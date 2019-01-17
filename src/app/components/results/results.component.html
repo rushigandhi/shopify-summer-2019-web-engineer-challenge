@@ -1,13 +1,20 @@
-<div *ngFor="let item of items" class="results-container">
+<div *ngIf="query">
+<div *ngFor="let result of searchResults" class="results-container">
   <div class="item">
       <div class="item-title">
-          {{item.title}}
+          {{result.title}}
         </div>
         <div class="item-content">
-          <div [innerHTML]="item.body | unescape"></div>
+          <div [innerHTML]="result.body | unescape"></div>
         </div>
   </div>
-
+</div>
+</div>
+<div *ngIf="!query">
+  Please search...
+</div>
+<div *ngIf="searchResults.length == 0 && query">
+    Not Available
 </div>
 
 <!-- <ul *ngFor="let item of items">

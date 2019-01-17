@@ -3,7 +3,7 @@
     text-align: center;
     top:0;
     left:0;
-    height: 100px;
+    height: 150px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -11,4 +11,5 @@
 }
 .title h1{
     color: white;
+    font-size: 3.5em;
 }

@@ -9,11 +9,12 @@
     width: 92%;
     padding-left: 0.75em;
     padding-right: 0.75em;
-
+    border: 1px solid #c1c1c1;
+    border-radius: 0.1em;
 }
 
 .search-btn {
-    width: 4.5%;
+    width: 4%;
     margin-left: 1em;
     background: #499661;
     border-radius: 0.2em;
