@@ -46,11 +46,17 @@ Since the backend is not filtering these results for us, if the JSON data is ext
 Currently, I'm trying to improve my algorithm and data structure-related skills, hence I thought it would be cool if I could implement something I've recently learned into this web app. To combat the time complexity issue, I decided to put the **Trie** (also called the Prefix Tree) data structure to use.
 
 I learned more about Tries from the video below
+
+
 [![IMAGE ALT TEXT HERE](https://i.ytimg.com/an_webp/dUBkaqrcYT8/mqdefault_6s.webp?du=3000&sqp=CLmzleIF&rs=AOn4CLAD_H40xaYFbOBbzI78h0Xe1IwqFg)](https://www.youtube.com/watch?v=dUBkaqrcYT8).
 
 Tries store strings in a way that can be visualized in a tree (similar to Binary Search Trees).
 ![Trie Image](https://he-s3.s3.amazonaws.com/media/uploads/fb14630.png)
-Image from: https://www.hackerearth.com/practice/data-structures/advanced-data-structures/trie-keyword-tree/tutorial/
+
+
+Image from:
+
+https://www.hackerearth.com/practice/data-structures/advanced-data-structures/trie-keyword-tree/tutorial/
 
 To check if a word exists, we can just traverse the Trie. We would need to go down M levels where M is the length of the queried string. Hence, the time complexity of a Trie search is O(M), but in this case, since M is length of the queried word, it will most likely be less than 30 characters long. Thus, this search will be much faster than the linear search I implemented before.
 
