@@ -1,7 +1,10 @@
 import { Component, OnInit, ViewChild} from '@angular/core';
 import { ItemService } from '../../services/item.service';
 import { Item } from '../../models/item';
+import { Trie } from '../../models/trie';
+import { TrieNode } from '../../models/trie-node';
 import { FavouritesComponent } from '../favourites/favourites.component';
+
 
 
 @Component({
@@ -19,9 +22,29 @@ export class ResultsComponent implements OnInit {
 
   ngOnInit() {
     this.itemService.getItems().subscribe(data =>{
+      // create dictionary (in .items)
       for(var i = 0; i < data.length; i++){
-        this.itemService.items.push(data[i]);
+        let row = data[i];
+
+        row.title.split(" ").forEach(word => {
+            if (word.indexOf("(") >= 0) {
+              word = word.substring(1, word.length - 1);
+            }
+            this.itemService.trie.addNode(i, word.toLowerCase());
+          });
+
+        row.keywords.split(", ").forEach(keyword => {
+          keyword.split(" ").forEach(keyword => {
+            if (keyword.indexOf("(") >= 0) {
+              keyword = keyword.substring(1, keyword.length - 1);
+            }
+            this.itemService.trie.addNode(i, keyword.toLowerCase());
+          })
+        });
+
+        this.itemService.items.push(row);
       }
+
     });
   }
 
@@ -35,14 +58,22 @@ export class ResultsComponent implements OnInit {
   }
 
   displayResults(query: string){
-    this.query = query;
+    
+    this.query = query;    
     this.itemService.searchResults = [];
-    for(var i = 0; i < this.itemService.items.length; i++){
-      var keywords: string = this.itemService.items[i].keywords;
-      if(keywords.includes(query)){
-        this.itemService.searchResults.push(this.itemService.items[i]);
-      }
+
+    for (let num of this.itemService.trie.getNode(query).values) {
+      this.itemService.searchResults.push(this.itemService.items[num]);
     }
+
+    // OLD O(n) SEARCH IMPLEMENTATION where N is the size of the array of items
+
+    // for(var i = 0; i < this.itemService.items.length; i++){
+    //   var keywords: string = this.itemService.items[i].keywords;
+    //   if(keywords.includes(query)){
+    //     this.itemService.searchResults.push(this.itemService.items[i]);
+    //   }
+    // }
   }
 
 }

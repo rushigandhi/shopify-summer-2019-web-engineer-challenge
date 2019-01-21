@@ -1,5 +1,5 @@
 <div class="row search">
-  <input #bar class="search-bar"  type="text" placeholder="Search..">
+  <input #bar class="search-bar" (keyup)="checkEmpty(bar.value)" (keyup.enter)="search(bar.value)" type="text" placeholder="Search..">
   <button (click)="search(bar.value)" class="search-btn"><img class="magnifying-glass" src="../../../assets/magnifying-glass.png"/></button>
 </div>
 <app-results></app-results>

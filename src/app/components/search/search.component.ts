@@ -17,6 +17,12 @@ export class SearchComponent implements OnInit {
   ngOnInit() {
   }
 
+  checkEmpty(query: string) {
+    if (query.length == 0){
+      this.child.displayResults("");
+    }
+  }
+
   search(query:string){
     this.child.displayResults(query);
   }
