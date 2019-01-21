@@ -1,24 +1,32 @@
+<!-- Show if the query string does not have an length of 0 -->
 <div *ngIf="query">
+  <!-- For every result in the searchResult arrays -->
 <div *ngFor="let result of this.itemService.searchResults" class="results-container">
   <div class="item">
       <div class="item-title">
+          <!-- If item is in the favourites array, delete it if the star is clicked -->
           <span *ngIf="this.itemService.favourites.includes(result)">
           <i (click)="favourite(result)" class="fas fa-star star-icon-delete"></i>
           </span>
+          <!-- If item is not in the favourites array, add it if the star is clicked -->
           <span *ngIf="!this.itemService.favourites.includes(result)">
               <i (click)="favourite(result)" class="fas fa-star star-icon-add"></i>
           </span>
           {{result.title}}
         </div>
+        <!-- Display the unescaped HTML -->
         <div class="item-content">
           <div [innerHTML]="result.body | unescape"></div>
         </div>
   </div>
 </div>
 </div>
-<div style="text-align: center" *ngIf="!query">
-  Please search...
+
+<!-- Show if the query string does have an length of 0 -->
+<div style="text-align: center; padding-bottom: 3em; padding-top: 3em; padding-left: 1em; padding-right: 1em;" *ngIf="!query">
+  Search to learn about where waste should go!
 </div>
-<div style="text-align: center" *ngIf="this.itemService.searchResults.length == 0 && query">
-    No Results
+<!-- Show if there are no results for the current query -->
+<div style="text-align: center; padding-bottom: 3em; padding-top: 3em; padding-left: 1em; padding-right: 1em;" *ngIf="this.itemService.searchResults.length == 0 && query">
+    No results found.
 </div>

@@ -14,3 +14,29 @@
     font-size: 3.5em;
     font-weight: bold;
 }
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 693px){
+    .title h1{
+        font-size: 3em;
+    }
+}
+
+@media screen and (max-width: 510px){
+    .title h1{
+        font-size: 2.5em;
+    }
+}
+
+@media screen and (max-width: 370px){
+    .title h1{
+        font-size: 2.2em;
+    }
+}
+
+@media screen and (max-width: 310px){
+    .title h1{
+        font-size: 2em;
+    }
+}

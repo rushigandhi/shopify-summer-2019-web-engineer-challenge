@@ -1,5 +1,6 @@
 <div class="row search">
-  <input #bar class="search-bar" (keyup)="checkEmpty(bar.value)" (keyup.enter)="search(bar.value)" type="text" placeholder="Search..">
+  <!-- Call the search function with the input value when search button is pressed or enter is pressed -->
+  <input #bar class="search-bar" (keyup)="checkEmpty(bar.value)" (keyup.enter)="search(bar.value)" type="text" placeholder="Search...">
   <button (click)="search(bar.value)" class="search-btn"><img class="magnifying-glass" src="../../../assets/magnifying-glass.png"/></button>
 </div>
 <app-results></app-results>

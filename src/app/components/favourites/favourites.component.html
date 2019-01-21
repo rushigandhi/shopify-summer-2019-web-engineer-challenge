@@ -1,26 +1,32 @@
 <div class="favourites-body">
     <div class="favourites-container">
         <h2 class="favourites-title">Favourites</h2>
+        <!-- If the favourites array is not empty -->
         <div *ngIf="this.itemService.favourites.length != 0">
+            <!-- For every item in the favourites array -->
             <div *ngFor="let favouriteItem of this.itemService.favourites" class="results-container">
               <div class="item">
                   <div class="item-title">
+                      <!-- If item is in the favourites array, delete it if the star is clicked -->
                       <span *ngIf="this.itemService.favourites.includes(favouriteItem)">
                       <i (click)="favourite(favouriteItem)" class="fas fa-star star-icon-delete"></i>
                       </span>
+                      <!-- If item is not in the favourites array, add it if the star is clicked -->
                       <span *ngIf="!this.itemService.favourites.includes(favouriteItem)">
                           <i (click)="favourite(favouriteItem)" class="fas fa-star star-icon-add"></i>
                       </span>
                       {{favouriteItem.title}}
                     </div>
                     <div class="item-content">
+                        <!-- Display the unescaped HTML -->
                       <div [innerHTML]="favouriteItem.body | unescape"></div>
                     </div>
               </div>
             </div>
             </div>
+            <!-- Display this if the favourites array is empty -->
             <div *ngIf="this.itemService.favourites.length == 0">
-              No Favourites
+              No favourites. Click the star icon beside each result to add it to your favourites!
             </div>
     </div>
 </div>
