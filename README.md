@@ -53,7 +53,6 @@ I learned more about Tries from the video below
 Tries store strings in a way that can be visualized in a tree (similar to Binary Search Trees).
 ![Trie Image](https://he-s3.s3.amazonaws.com/media/uploads/fb14630.png)
 
-
 Image from:
 
 https://www.hackerearth.com/practice/data-structures/advanced-data-structures/trie-keyword-tree/tutorial/
